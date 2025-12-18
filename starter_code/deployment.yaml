@@ -1,24 +1,21 @@
 # Kubernetes Deployment Template
 # TODO: Fill in the missing values
-
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: web-app
-  labels:
-    app: web-app
 spec:
-  replicas: # TODO: Set number of replicas
+  replicas: 2
   selector:
     matchLabels:
-      app: # TODO: Match label
+      app: web-app
   template:
     metadata:
       labels:
-        app: # TODO: Pod label
+        app: web-app
     spec:
       containers:
-      - name: # TODO: Container name
-        image: # TODO: Image name (e.g., nginx:alpine)
-        ports:
-        - containerPort: # TODO: Port number
+        - name: nginx
+          image: nginx:alpine
+          ports:
+            - containerPort: 80
